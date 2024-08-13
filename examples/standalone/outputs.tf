@@ -13,3 +13,7 @@
 output "log_group_arn" {
   value = module.cloudwatch_log_group.log_group_arn
 }
+
+output "log_group_name" {
+  value = module.cloudwatch_log_group.log_group_name
+}

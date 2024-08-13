@@ -67,4 +67,5 @@ No resources.
 | Name | Description |
 |------|-------------|
 | <a name="output_log_group_arn"></a> [log\_group\_arn](#output\_log\_group\_arn) | n/a |
+| <a name="output_log_group_name"></a> [log\_group\_name](#output\_log\_group\_name) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
