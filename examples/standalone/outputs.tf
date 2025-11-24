@@ -17,3 +17,7 @@ output "log_group_arn" {
 output "log_group_name" {
   value = module.cloudwatch_log_group.log_group_name
 }
+
+output "log_group_kms_key_id" {
+  value = module.cloudwatch_log_group.log_group_kms_key_id
+}
