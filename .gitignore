@@ -56,9 +56,6 @@ terraform.rc
 azure_env.sh
 .releaserc.json
 
-# Pre-commit hook
-.pre-commit-config.yaml
-
 # VS Code
 .vscode/
 .envrc
