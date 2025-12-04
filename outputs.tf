@@ -17,3 +17,7 @@ output "log_group_name" {
 output "log_group_arn" {
   value = aws_cloudwatch_log_group.log_group.arn
 }
+
+output "log_group_kms_key_id" {
+  value = aws_cloudwatch_log_group.log_group.kms_key_id
+}
