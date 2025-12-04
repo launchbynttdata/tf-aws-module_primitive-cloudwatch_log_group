@@ -21,3 +21,11 @@ output "log_group_name" {
 output "log_group_kms_key_id" {
   value = module.cloudwatch_log_group.log_group_kms_key_id
 }
+
+output "policy_map" {
+  value = data.aws_iam_policy_document.cloudwatch_logs_kms_policy
+}
+
+output "policy_statement" {
+  value = data.aws_iam_policy_document.cloudwatch_logs_kms_policy.statement
+}

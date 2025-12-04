@@ -51,14 +51,15 @@ No outputs.
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 | <a name="module_kms_key"></a> [kms\_key](#module\_kms\_key) | terraform.registry.launch.nttdata.com/module_primitive/kms_key/aws | ~> 0.1 |
+| <a name="module_kms_key_policy"></a> [kms\_key\_policy](#module\_kms\_key\_policy) | terraform.registry.launch.nttdata.com/module_primitive/kms_key_policy/aws | ~> 0.1 |
 | <a name="module_cloudwatch_log_group"></a> [cloudwatch\_log\_group](#module\_cloudwatch\_log\_group) | ../.. | n/a |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [aws_kms_key_policy.cloudwatch_logs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kms_key_policy) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_iam_policy_document.cloudwatch_logs_kms_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
@@ -67,7 +68,7 @@ No outputs.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Name of the log group. | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the log group. | `string` | `null` | no |
 | <a name="input_kms_key_id"></a> [kms\_key\_id](#input\_kms\_key\_id) | (Optional) The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested. | `string` | `null` | no |
 
 ## Outputs
@@ -77,4 +78,6 @@ No outputs.
 | <a name="output_log_group_arn"></a> [log\_group\_arn](#output\_log\_group\_arn) | n/a |
 | <a name="output_log_group_name"></a> [log\_group\_name](#output\_log\_group\_name) | n/a |
 | <a name="output_log_group_kms_key_id"></a> [log\_group\_kms\_key\_id](#output\_log\_group\_kms\_key\_id) | n/a |
+| <a name="output_policy_map"></a> [policy\_map](#output\_policy\_map) | n/a |
+| <a name="output_policy_statement"></a> [policy\_statement](#output\_policy\_statement) | n/a |
 <!-- END_TF_DOCS -->

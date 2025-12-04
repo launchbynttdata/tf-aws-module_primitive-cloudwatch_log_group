@@ -22,6 +22,8 @@ components/
 # .tfstate files
 *.tfstate
 *.tfstate.*
+*.tfplan
+tfplan
 
 # Crash log files
 crash.log
