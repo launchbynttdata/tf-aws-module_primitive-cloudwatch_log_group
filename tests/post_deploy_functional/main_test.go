@@ -20,5 +20,5 @@ func TestLogGroupModule(t *testing.T) {
 		SetTestConfigFileName(infraTFVarFileNameDefault).
 		Build()
 
-	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestLogGroup)
+	lib.RunSetupTestTeardown(t, *ctx, testimpl.TestComposableComplete)
 }
