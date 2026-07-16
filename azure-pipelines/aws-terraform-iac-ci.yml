@@ -40,7 +40,7 @@ extends:
     checkovPoliciesVersion: '*'
     checkovArtifactName: checkov-report
     testResultsArtifactName: terraform-test-results
-    mustAssumeRole: true
+    mustAssumeRole: false
     awsRegion: us-east-2
     usePipelineVariableTemplates: true
     varFile: test.tfvars
