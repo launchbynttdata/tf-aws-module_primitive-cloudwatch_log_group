@@ -43,6 +43,7 @@ extends:
     checkovArtifactName: checkov-report
     testResultsArtifactName: terraform-test-results
     mustAssumeRole: false
+    awsCredentials: aws-launch-platform-ado-pipeline-templates
     awsRegion: us-east-2
     usePipelineVariableTemplates: true
     varFile: test.tfvars
