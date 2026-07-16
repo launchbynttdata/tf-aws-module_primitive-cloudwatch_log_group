@@ -21,14 +21,14 @@ resources:
       endpoint: github-launch-platform-ado-pipeline-templates
 
 pool:
-  vmImage: ubuntu-22.04
+  vmImage: ubuntu-latest
 
 extends:
   template: /pipelines/aws-terraform-iac-ci.yml@templates
   parameters:
     name: CloudWatchLogGroupModuleCI
     terraformVersion: '1.10.4'
-    agentPoolName: Default
+    agentPoolName: 'Azure Pipelines'
     environment: poc
     exampleDirectories:
       - examples/standalone
