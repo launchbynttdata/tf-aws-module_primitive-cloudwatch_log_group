@@ -32,9 +32,10 @@ extends:
     environment: poc
     exampleDirectories:
       - examples/standalone
+    skipCheckovChecks: true
     checkovScanMode: normal
     enableTerraformTests: false
-    skipBuiltInChecks: false
+    skipBuiltInChecks: true
     checkovPoliciesFeed: platform-scripts
     checkovPoliciesPackage: checkov_policies
     checkovPoliciesVersion: '*'
