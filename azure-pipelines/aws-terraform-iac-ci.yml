@@ -27,7 +27,8 @@ extends:
   template: /pipelines/aws-terraform-iac-ci.yml@templates
   parameters:
     name: CloudWatchLogGroupModuleCI
-    terraformVersion: '1.10.4'
+    installTerraform: true
+    terraformVersion: '1.12.2'
     agentPoolName: 'Azure Pipelines'
     environment: poc
     exampleDirectories:
