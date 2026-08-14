@@ -17,9 +17,9 @@ import (
 )
 
 func TestComposableComplete(t *testing.T, ctx types.TestContext) {
-	groupName := terraform.Output(t, ctx.TerratestTerraformOptions(), "log_group_name")
-	groupArn := terraform.Output(t, ctx.TerratestTerraformOptions(), "log_group_arn")
-	kmsKeyID := terraform.Output(t, ctx.TerratestTerraformOptions(), "log_group_kms_key_id")
+	groupName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "log_group_name")
+	groupArn := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "log_group_arn")
+	kmsKeyID := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "log_group_kms_key_id")
 	region := extractRegionFromArn(t, groupArn)
 	cloudwatchClient := cloudwatchlogs.NewFromConfig(GetAWSConfig(t, region))
 
