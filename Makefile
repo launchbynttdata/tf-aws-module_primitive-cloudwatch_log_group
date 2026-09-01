@@ -181,7 +181,7 @@ $(1)/provider.tf
 endef
 
 define add_provider_details
-	$(if $(findstring hashicorp/aws,$(2)),grep -qs "aws" $(1) || bash -c 'echo -e "$(call aws_provider)"' >> $(1),)
+	$(if $(findstring hashicorp/aws,$(2)),bash -c 'EXAMPLE_DIR="$(dir $(1))"; for f in "$$EXAMPLE_DIR"*.tf; do [ -f "$$f" ] && grep -q "provider \"aws\"" "$$f" && exit 0; done; grep -qs "aws" "$(1)" 2>/dev/null || echo -e "$(call aws_provider)" >> "$(1)"',)
 	$(if $(findstring azure/azapi,$(2)),grep -qs "azapi" $(1) || bash -c 'echo -e "$(call azapi_provider)"' >> $(1),)
 	$(if $(findstring microsoft/azuredevops,$(2)),grep -qs "azuredevops" $(1) || bash -c 'echo -e "$(call azuredevops_provider)"' >> $(1),)
 	$(if $(findstring hashicorp/azurerm,$(2)),grep -qs "azurerm" $(1) || bash -c 'echo -e "$(call azurerm_provider)"' >> $(1),)
