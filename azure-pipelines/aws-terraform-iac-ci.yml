@@ -1,0 +1,56 @@
+# ==============================================================================
+# Azure DevOps CI pipeline for tf-aws-module_primitive-cloudwatch_log_group
+# ==============================================================================
+# Extends the launch-platform-ado-pipeline-templates aws-terraform-iac-ci root
+# template to validate and plan Terraform examples in this repository.
+#
+# Register this pipeline in Azure DevOps with YAML path:
+#   azure-pipelines/aws-terraform-iac-ci.yml
+# ==============================================================================
+
+trigger: none
+
+pr: none
+
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: launchbynttdata/launch-platform-ado-pipeline-templates
+      ref: refs/heads/feature/template-library-consolidation
+      endpoint: github-launch-platform-ado-pipeline-templates
+
+pool:
+  vmImage: ubuntu-latest
+
+extends:
+  template: /pipelines/aws-terraform-iac-ci.yml@templates
+  parameters:
+    name: CloudWatchLogGroupModuleCI
+    installTerraform: true
+    terraformVersion: '1.12.2'
+    agentPoolName: 'Azure Pipelines'
+    environment: poc
+    exampleDirectories:
+      - examples/standalone
+    skipCheckovChecks: true
+    checkovScanMode: normal
+    enableTerraformTests: false
+    skipBuiltInChecks: true
+    checkovPoliciesFeed: platform-scripts
+    checkovPoliciesPackage: checkov_policies
+    checkovPoliciesVersion: '*'
+    checkovArtifactName: checkov-report
+    testResultsArtifactName: terraform-test-results
+    mustAssumeRole: false
+    awsCredentials: aws-launch-platform-ado-pipeline-templates
+    awsRegion: us-east-2
+    usePipelineVariableTemplates: true
+    varFile: test.tfvars
+    enableAutoVersioning: true
+    tagPrefix: v
+    patchBranchPrefixes: 'fix/,chore/'
+    minorBranchPrefixes: 'feature/'
+    majorBranchPrefixes: 'release/'
+    aavVersion: latest
+    goVersionSpec: '1.26.1'
